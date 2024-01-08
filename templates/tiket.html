@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiket</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1 class="text-center mb-4">Pembuatan Tiket Konser</h1>
+            
+            <form method="post" action="{{ url_for('tiket') }}" class="mb-4">
+                <div class="row g-2">
+                    <div class="col-md">
+                        <label for="first_name" class="form-label">Nama Awal:</label>
+                        <input type="text" name="first_name" class="form-control" required>
+                    </div>
+                    <div class="col-md">
+                        <label for="middle_name" class="form-label">Nama Tengah:</label>
+                        <input type="text" name="middle_name" class="form-control">
+                    </div>
+                    <div class="col-md">
+                        <label for="last_name" class="form-label">Nama Akhir:</label>
+                        <input type="text" name="last_name" class="form-control" required>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="concert_type" class="form-label">Tipe Konser:</label>
+                    <input type="text" name="concert_type" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="concert_price" class="form-label">Harga Konser:</label>
+                    <input type="text" name="concert_price" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="concert_schedule" class="form-label">Jadwal Konser:</label>
+                    <input type="text" name="concert_schedule" class="form-control" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="concert_location" class="form-label">Lokasi Konser:</label>
+                    <input type="text" name="concert_location" class="form-control" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Buat QR Code</button>
+            </form>
+            <form method="get" action="{{ url_for('index') }}">
+                <button type="submit" class="btn btn-primary">
+                  Back
+                </button>
+            {% if qr_code_exists %}
+                <div class="text-center">
+                    <img src="{{ url_for('static', filename='qrcode.png') }}" alt="Generated QR Code" class="img-fluid mb-3">
+                    <br>
+                    <a href="{{ url_for('download_qr_code') }}" class="btn btn-secondary" download>Download QR Code</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

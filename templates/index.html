@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"/>
+  </head>
+  <body class="container mt-3">
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <h1 class="text-center mb-2">Sistem Tiket Konser</h1>
+            <img src="{{ url_for('static', filename='hd.png') }}" alt="Concert Image" class="img-fluid">
+            <div class="row">
+              <div class="col-md-4 mb-3">
+                <form method="get" action="{{ url_for('tiket') }}">
+                  <button type="submit" class="btn btn-primary w-100">
+                    Buat Tiket
+                  </button>
+                </form>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <form method="get" action="{{ url_for('konfirmasi') }}">
+                  <button type="submit" class="btn btn-primary w-100">
+                    Konfirmasi Tiket
+                  </button>
+                </form>
+              </div>
+              <div class="col-md-4 mb-3">
+                <form method="get" action="{{ url_for('keamanan') }}">
+                  <button type="submit" class="btn btn-primary w-100">
+                    Keamanan
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
